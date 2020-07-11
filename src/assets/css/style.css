@@ -93,7 +93,7 @@ body {
       padding: 5rem; } }
   @media (max-width: 62.5em) {
     .burger {
-      width: 70%;
+      width: 85%;
       height: 50vh;
       padding: 3rem; } }
   .burger__text {
@@ -202,6 +202,12 @@ body {
   width: 92%;
   height: 3%;
   background: linear-gradient(#bf3813, #c45e38);
+  margin: 2% auto; }
+
+.tomato {
+  width: 90%;
+  height: 5%;
+  background: linear-gradient(#f81717, red);
   margin: 2% auto; }
 
 .controls-list {

@@ -1,27 +1,38 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Backdrop from '../Backdrop/Backdrop';
-import Auxiliar from '../../../hoc/Auxiliar';
+import Auxiliar from '../../../hoc/Auxiliar/Auxiliar';
 
 const styles = ['modal','hide-translateY'];
 
-const modal = (props) => {
-    if (props.display) {
-        styles.pop();
-        styles.push('show-translateY');
+class Modal extends Component {
+
+    shouldComponentUpdate (nextProps, nextState) {
+            return nextProps.display !== this.props.display;
     }
-    if(!props.display) {
-        styles.pop();
-        styles.push('hide-translateY');
+
+    componentDidUpdate () {
+        console.log('[Modal] componentDidUpdate');
     }
     
-    return (
-        <Auxiliar>
-            <div className={styles.join(' ')}>
-                {props.children}
-            </div>
-            <Backdrop show={props.display} clicked={props.closeModal}/>
-        </Auxiliar>
+        render ( ) {
+            if (this.props.display) {
+                styles.pop();
+                styles.push('show-translateY');
+            }
+            if(!this.props.display) {
+                styles.pop();
+                styles.push('hide-translateY');
+            }
             
-);
+        return (
+            <Auxiliar>
+                <div className={styles.join(' ')}>
+                    {this.props.children}
+                </div>
+                <Backdrop show={this.props.display} clicked={this.props.closeModal}/>
+            </Auxiliar>
+                    
+        );
+    }
 }
-export default modal;
+export default Modal;

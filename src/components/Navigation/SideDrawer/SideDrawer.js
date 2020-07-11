@@ -2,7 +2,7 @@ import React from 'react';
 import Logo from '../../Logo/Logo';
 import NavigationList from '../../Navigation/NavigationsItems/Navig_Items_List';
 import Backdrop from '../../UI/Backdrop/Backdrop';
-import Auxiliar from '../../../hoc/Auxiliar';
+import Auxiliar from '../../../hoc/Auxiliar/Auxiliar';
 
 const styles = ['side-drawer','hide-translateX'];
 
