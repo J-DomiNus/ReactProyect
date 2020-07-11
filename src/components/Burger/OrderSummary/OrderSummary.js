@@ -22,10 +22,10 @@ const orderSummary = (props) => {
             <p className='price'>Current Price ${props.totalPrice.toFixed(2)}</p>
             <p className='u-center-align'><strong>Continue to Checkout?</strong></p>
             <div className='order-summary-wrapper'>
-            <Button btnType='dark'
-                    clicked={props.orderCanceled}>Cancel</Button>
             <Button btnType='light'
-                    clicked={props.continueOrder}>Continue</Button>
+                    clicked={props.orderCanceled}>No</Button>
+            <Button btnType='dark'
+                    clicked={props.continueOrder}>Yes</Button>
             </div>
         </Auxiliar>
     )

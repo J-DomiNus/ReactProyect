@@ -2,16 +2,16 @@ import React from 'react';
 import Backdrop from '../Backdrop/Backdrop';
 import Auxiliar from '../../../hoc/Auxiliar';
 
-const styles = ['modal','hide'];
+const styles = ['modal','hide-translateY'];
 
 const modal = (props) => {
     if (props.display) {
         styles.pop();
-        styles.push('show');
+        styles.push('show-translateY');
     }
     if(!props.display) {
         styles.pop();
-        styles.push('hide');
+        styles.push('hide-translateY');
     }
     
     return (

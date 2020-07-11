@@ -2,9 +2,13 @@
     text-align: center;
     font-size: 3rem;
     font-weight: 700;
-    color: $color-headings;
+    color: $color-secondary-dark;
     padding: 2rem;
     text-transform: uppercase;
+
+    @media (max-width: 370px) {
+        font-size: 2.5rem;
+    }
 }
 
 .price {
@@ -13,10 +17,16 @@
     font-weight: 700;
     color: $color-price;
     padding: 2rem;
+
+    @media (max-width: 370px) {
+        font-size: 2.5rem;
+    }
 }
 
 .label {
+    font-size: 1.8rem;
     padding: 10px;
     font-weight: bold;
     width: 80px;
 }
+

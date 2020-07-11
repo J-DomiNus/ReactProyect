@@ -5,14 +5,18 @@
 @import 'base/typography';
 @import 'base/utilities';
 
-
-@import '../components/Burger/burger';
-@import '../components/Burger/BurgerIngredient/burgerIngredient';
-@import '../components/Burger/Controls/controlsList';
-@import '../components/Burger/OrderSummary/orderSummary';
-@import '../components/Layout/layout';
-@import '../components/UI/Backdrop/backdrop';
-@import '../components/UI/Modal/modal';
+@import './components/backdrop';
+@import './components/burger';
+@import './components/burgerIngredient';
+@import './components/controlsList';
+@import './components/layout';
+@import './components/logo';
+@import './components/modal';
+@import './components/navigationItem';
+@import './components/navigationList';
+@import './components/orderSummary';
+@import './components/sideDrawer';
+@import './components/toolbar';
 
 @import './elements/buttons';
 @import './elements/wrappers';

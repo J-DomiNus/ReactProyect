@@ -1,4 +1,5 @@
 .modal {
+    font-size: 1.8rem;
     position: fixed;
     z-index: 500;
     background-color: $color-primary;
@@ -10,15 +11,15 @@
     left: 15%;
     top: 15%;
     box-sizing: border-box;
-    transition: all 0.3s ease-out;
+    transition: all .5s ease-out;
 }
 
-.show {
+.show-translateY {
     transform: translateY(0);
     opacity: 1;
 }
 
-.hide {
+.hide-translateY {
     transform: translateY(-100vh);
     opacity: 0;
 }

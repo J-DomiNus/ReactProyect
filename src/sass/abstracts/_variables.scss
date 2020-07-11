@@ -5,8 +5,19 @@ $color-secondary-light: rgb(223, 148, 223);
 $color-secondary: rgb(202, 64, 202);
 $color-secondary-dark: darkviolet;
 
+$color-tertiary-light:  #DAD735;
+$color-tertiary:  #A0DB41;
+
+//FONT COLORS----------------------------
 $color-headings: white;
-$color-buttons: white;
 $color-price: orangered;
 $color-font: rgb(34, 34, 34);
+
+//BUTTON EXTRA COLORS--------------------
+$color-disabled: #C7C6C6;
+$color-buttons: white;
+$color-font-disabled: #888888;
+
+//OTHER BACKGROUNd COLORS----------------
 $color-backdrop: rgb(34, 34, 34);
+$color-sideDrawer: white;

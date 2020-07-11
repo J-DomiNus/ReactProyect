@@ -10,3 +10,18 @@
     justify-content: center;
     margin-top: 2rem;
 }
+
+.side-drawer__logo__wrapper {
+    height: 11%;
+    margin-bottom: 3rem;
+}
+
+.toolbar__logo__wrapper {
+    height: 80%;
+}
+
+@include respond(phone) {
+    .nav__desktop-only__wrapper {
+        display: none;
+    }
+}

@@ -1,0 +1,66 @@
+.navigation-item {
+    margin: 0 2px;
+
+    @include respond(phone) {
+        margin: 10px 0;
+        display: block;
+        width: 100%;
+    }
+}
+
+.navigation-item__a {
+    color: $color-headings;
+    font-size: 2rem;
+    text-decoration: none;
+    padding: 1.2rem 1rem;
+    transition: all .2s;
+
+    @include respond(phone) {
+        color: $color-primary-dark;
+        width: 100%;
+        display: block;
+    }
+
+    &:hover {
+        background-color: $color-primary;
+        border-bottom: 4px solid $color-secondary;
+
+        @include respond(phone) {
+            color: $color-primary;
+            background-color: transparent;
+        }
+    }
+    &:active,
+    &.active {
+        border-bottom: 4px solid $color-secondary;
+    }
+}
+
+.navigation-item__menu {
+    width: 4.9rem;
+    height: 5.5rem;
+    padding: 4px;
+    padding-right: 0;
+    cursor: pointer;
+    transition: all .2s;
+    display: none;
+    background-color: transparent;
+
+    @include respond(phone) {
+        display: flex;
+        flex-flow: column;
+        justify-content: space-evenly;
+    }
+
+    &:hover {
+        background-color: $color-primary;
+        justify-content: space-around;
+    }
+}
+
+.menu-icon {
+    width: 90%;
+    height: 3px;
+    background-color: $color-headings;
+    display: flex;
+}

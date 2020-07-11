@@ -4,8 +4,9 @@
 }
 
 .li-ingredient {
+    color: $color-secondary-dark;
     padding: 1rem;
-    background-color: $color-secondary-light;
+    background-color: $color-headings;
     list-style: none;
     border: 1px solid $color-secondary-dark;
     border-radius: 3px;

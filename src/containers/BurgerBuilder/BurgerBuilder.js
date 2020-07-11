@@ -21,7 +21,7 @@ class BurgerBuilder extends Component {
         },
         totalPrice: 4,
         enableOrderButton: false,
-        displayOrderBox: false
+        displayOrderBox: false,
     }
 
     addIngredientHandler = (type) => {
