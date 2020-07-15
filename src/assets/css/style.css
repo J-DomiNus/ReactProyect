@@ -146,7 +146,7 @@ body {
   align-items: center;
   margin: 5px 0; }
 
-.control-button {
+.ctrl-btn {
   display: block;
   font: inherit;
   padding: 5px;
@@ -155,23 +155,23 @@ body {
   border: 1px solid #AA6817;
   cursor: pointer;
   outline: none; }
-  .control-button:disabled {
+  .ctrl-btn:disabled {
     background-color: #AC9980;
     border: 1px solid #7E7365;
     color: #ccc;
     cursor: default; }
-  .control-button:hover {
-    cursor: not-allowed; }
-  .control-button__less {
+    .ctrl-btn:disabled:hover {
+      cursor: not-allowed; }
+  .ctrl-btn--less {
     background-color: #D39952;
     color: white; }
-    .control-button__less:hover, .control-button__less:active {
+    .ctrl-btn--less:hover, .ctrl-btn--less:active {
       background-color: #DAA972;
       color: white; }
-  .control-button__more {
+  .ctrl-btn--more {
     background-color: #8F5E1E;
     color: white; }
-    .control-button__more:hover, .control-button__more:active {
+    .ctrl-btn--more:hover, .ctrl-btn--more:active {
       background-color: #99703F;
       color: white; }
 

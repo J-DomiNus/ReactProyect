@@ -6,7 +6,7 @@
     margin: 5px 0;
 }
 
-.control-button {
+.ctrl-btn {
     display: block;
     font: inherit;
     padding: 5px;
@@ -21,13 +21,13 @@
         border: 1px solid #7E7365;
         color: #ccc;
         cursor: default;
+
+        &:hover {
+            cursor: not-allowed;
+        }
     }
 
-    &:hover {
-        cursor: not-allowed;
-    }
-
-    &__less {
+    &--less {
         background-color: #D39952;
         color: white;
 
@@ -38,7 +38,7 @@
         }
     }
 
-    &__more {
+    &--more {
         background-color: #8F5E1E;
         color: white;
 
