@@ -2,7 +2,10 @@
 
 @import 'base/base';
 
+
 @import '../components//Burger/burger';
 @import '../components//Burger/BurgerIngredient/burgerIngredient';
+@import '../components//Burger/Controls/BuildControl/buildControl';
+@import '../components//Burger/Controls/controlsList';
 @import '../components/Layout/layout';
 
