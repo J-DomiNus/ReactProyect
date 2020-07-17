@@ -11,9 +11,9 @@ const checkoutSummary = (props) => {
             </div>
             <div className='order-summary-wrapper'>
                 <Button btnType='light'
-                        clicked>Cancel</Button>
+                        clicked={props.checkoutCanceled}>Cancel</Button>
                 <Button btnType='dark'
-                        clicked>Continue</Button>
+                        clicked={props.checkoutContinued}>Continue</Button>
             </div>
         </div>
     )

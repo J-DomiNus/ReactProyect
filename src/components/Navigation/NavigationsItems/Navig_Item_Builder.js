@@ -10,6 +10,7 @@ const navigationItem = (props) => {
     return (
     <li className='navigation-item'>
         <NavLink to={props.link} 
+            exact={props.exact}
             className={[style, active].join(' ')}>
             {props.children}
         </NavLink>

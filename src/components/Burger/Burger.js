@@ -2,6 +2,9 @@ import React from 'react';
 import BurgerIngredient from './BurgerIngredient/BurgerIngredient';
 
 const burger = (props) => {
+    // console.log('burger')
+    // console.log(props)
+    // Burger is not routed directly, so it doesn't recive the props location, history, match...
     let ingredientsArray = Object.keys(props.ingredients)
         .map( igKey => {
             //console.log(igKey);

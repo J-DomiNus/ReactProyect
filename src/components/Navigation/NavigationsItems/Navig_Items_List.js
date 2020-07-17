@@ -3,8 +3,8 @@ import NavigationItem from './Navig_Item_Builder';
 
 const navigationItemsList = () => (
     <ul className='navigationList'>
-        <NavigationItem link='/'>Burger Builder</NavigationItem>
-        <NavigationItem link='/checkout'>Checkout</NavigationItem>
+        <NavigationItem link='/' exact >Burger Builder</NavigationItem>
+        <NavigationItem link='/orderslist'>Orders</NavigationItem>
     </ul>
 )
 

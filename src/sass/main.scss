@@ -8,13 +8,15 @@
 @import './components/backdrop';
 @import './components/burger';
 @import './components/burgerIngredient';
+@import './components/checkoutSummary';
+@import './components/contactData';
 @import './components/controlsList';
 @import './components/layout';
 @import './components/logo';
 @import './components/modal';
 @import './components/navigationItem';
 @import './components/navigationList';
-@import './components/checkoutSummary';
+@import './components/order';
 @import './components/orderSummary';
 @import './components/sideDrawer';
 @import './components/spinner';
@@ -22,4 +24,3 @@
 
 @import './elements/buttons';
 @import './elements/wrappers';
-

@@ -27,9 +27,10 @@ body {
   color: #222222; }
 
 .heading-primary {
-  font-size: 4rem;
+  font-size: 3rem;
   text-align: center;
-  margin-top: 5rem; }
+  margin-top: 5rem;
+  padding: 1rem; }
 
 .heading-secondary {
   text-align: center;
@@ -57,6 +58,11 @@ body {
   padding: 10px;
   font-weight: bold;
   width: 80px; }
+
+.typographyOrderSpan {
+  text-transform: capitalize;
+  display: inline-block;
+  line-height: 4px; }
 
 .u-margin-bottom-small {
   margin-bottom: 1.5rem !important; }
@@ -215,6 +221,40 @@ body {
   background: linear-gradient(#f81717, red);
   margin: 2% auto; }
 
+.checkoutSummary {
+  text-align: center;
+  width: 80%;
+  margin: auto; }
+
+@media (min-width: 600px) {
+  .checkoutSummary {
+    width: 70rem; } }
+
+.contactData {
+  margin: 2rem auto;
+  padding: 3rem 2rem;
+  border-radius: 5px;
+  box-shadow: 3px 4px rgba(221, 221, 221, 0.8);
+  width: 80%;
+  text-align: center;
+  position: relative;
+  background-color: #ffaf19; }
+
+@media (min-width: 60rem) {
+  .contactData {
+    width: 50rem; } }
+
+.Form {
+  padding: 2rem; }
+
+.Form input {
+  display: block;
+  margin: 1rem;
+  padding: .8rem;
+  width: 100%; }
+  .Form input:last-of-type {
+    border-bottom: 1rem; }
+
 .controls-list {
   font-size: 1.8rem;
   width: 100%;
@@ -286,17 +326,23 @@ body {
     .navigation-item__a {
       color: darkorange;
       width: 100%;
-      display: block; } }
+      display: block;
+      font-size: 1.8rem; } }
   .navigation-item__a:hover {
     background-color: #ffaf19;
     border-bottom: 8px solid #ca40ca; }
     @media (max-width: 31.25em) {
       .navigation-item__a:hover {
-        color: #ffaf19;
+        color: darkorange;
         background-color: transparent; } }
   .navigation-item__a:active, .navigation-item__a.active {
     background-color: #ffaf19;
     border-bottom: 8px solid #ca40ca; }
+    @media (max-width: 31.25em) {
+      .navigation-item__a:active, .navigation-item__a.active {
+        color: #ca40ca;
+        background-color: transparent;
+        border-bottom: none; } }
 
 .navigation-item__menu {
   width: 4.9rem;
@@ -331,14 +377,13 @@ body {
     .navigationList {
       flex-flow: column; } }
 
-.checkoutSummary {
-  text-align: center;
+.order {
   width: 80%;
-  margin: auto; }
-
-@media (min-width: 600px) {
-  .checkoutSummary {
-    width: 70rem; } }
+  border: 1px solid #eee;
+  box-shadow: 0 2px 3px #ccc;
+  padding: 1rem;
+  margin: 1rem auto;
+  box-sizing: border-box; }
 
 .ul-ingredients {
   padding: 3rem;
