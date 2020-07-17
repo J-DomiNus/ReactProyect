@@ -2,10 +2,10 @@ import React from 'react';
 import BurgerIngredient from './BurgerIngredient/BurgerIngredient';
 
 const burger = (props) => {
-    let ingredientsArray = Object.keys(props.ingredientsObject)
+    let ingredientsArray = Object.keys(props.ingredients)
         .map( igKey => {
             //console.log(igKey);
-            return [...Array ( props.ingredientsObject[igKey])].map((_, index)=> {
+            return [...Array ( props.ingredients[igKey])].map((_, index)=> {
                 return <BurgerIngredient key={igKey + index} type={igKey} />
             });
         })

@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const style = ['navigation-item__a']
 
@@ -8,10 +9,10 @@ const navigationItem = (props) => {
     
     return (
     <li className='navigation-item'>
-        <a href={props.link} 
+        <NavLink to={props.link} 
             className={[style, active].join(' ')}>
             {props.children}
-        </a>
+        </NavLink>
     </li>
 )
 }
