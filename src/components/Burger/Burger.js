@@ -2,7 +2,6 @@ import React from 'react';
 import BurgerIngredient from './BurgerIngredient/BurgerIngredient';
 
 const burger = (props) => {
-    console.log(props.ingredientsObject);
     let ingredientsArray = Object.keys(props.ingredientsObject)
         .map( igKey => {
             console.log(igKey);
@@ -13,10 +12,11 @@ const burger = (props) => {
         .reduce((arr, el) => {
             return arr.concat(el)
         }, []);
-        console.log(ingredientsArray);
+        //console.log(ingredientsArray);
         if(ingredientsArray.length === 0 ) {
             ingredientsArray = <p className='burger__text'>Add your ingredients!</p>
         }
+
     return (
         <div className='burger'>
             <BurgerIngredient type='bread-top'/>

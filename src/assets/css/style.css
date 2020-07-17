@@ -8,6 +8,7 @@
 /*DEFAULT CSS-------------------------------------*/
 html {
   font-size: 62.5%;
+  color: #222222;
   /*default browser font-size=16px
   62.5% of 16px = 10px*/ }
 
@@ -16,28 +17,55 @@ body {
   font-size: 1.6rem;
   box-sizing: border-box; }
 
+.heading-tertiary {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+  padding: 2rem; }
+
+.u-margin-bottom-small {
+  margin-bottom: 1.5rem !important; }
+
+.u-margin-bottom-medium {
+  margin-bottom: 3rem !important; }
+
+.u-center-align {
+  text-align: center !important; }
+
 .burger {
-  width: 92%;
+  width: 90rem;
   margin: auto;
-  height: 25rem;
+  padding: 3rem;
+  height: 50vh;
+  overflow: scroll;
   text-align: center;
   font-weight: bold;
   font-size: 1.2rem; }
-  @media (min-width: 31.25em) and (max-height: 25em) {
+  @media (max-width: 31.25em) {
     .burger {
-      width: 35rem;
-      height: 75vh; } }
-  @media (min-width: 31.25em) and (min-height: 25.1em) {
+      width: 80%;
+      height: 45vh; } }
+  @media (max-width: 45em) {
     .burger {
-      width: 45rem;
-      height: 95vh; } }
-  @media (min-width: 62.5em) and (min-height: 43.75em) {
+      width: 80%;
+      height: 50vh; } }
+  @media (max-width: 62.5em) {
     .burger {
-      width: 70rem;
-      height: 85vh; } }
+      width: 80%;
+      height: 50vh; } }
   .burger__text {
     font-size: 5rem;
     font-weight: normal; }
+    @media (max-width: 31.25em) {
+      .burger__text {
+        font-size: 2rem; } }
+    @media (max-width: 45em) {
+      .burger__text {
+        font-size: 3rem; } }
+    @media (max-width: 62.5em) {
+      .burger__text {
+        font-size: 3.5rem; } }
 
 .bread {
   width: 80%;
@@ -53,63 +81,56 @@ body {
     border-radius: 50% 50% 0 0;
     position: relative; }
 
-.seeds1 {
+.seeds {
   width: 10%;
   height: 15%;
   position: absolute;
   background-color: white;
-  left: 30%;
-  top: 50%;
   border-radius: 40%;
-  transform: rotate(-20deg);
-  box-shadow: inset -2px -3px #c9c9c9; }
-
-.seeds1:after {
-  content: "";
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  background-color: white;
-  left: -170%;
-  top: -260%;
-  border-radius: 40%;
-  transform: rotate(60deg);
   box-shadow: inset -1px 2px #c9c9c9; }
 
-.seeds1:before {
-  content: "";
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  background-color: white;
-  left: 180%;
-  top: -50%;
-  border-radius: 40%;
-  transform: rotate(60deg);
-  box-shadow: inset -1px -3px #c9c9c9; }
+.seeds1 {
+  left: 30%;
+  top: 50%;
+  transform: rotate(-20deg); }
+  .seeds1::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: white;
+    border-radius: 40%;
+    box-shadow: inset -1px 2px #c9c9c9;
+    left: -170%;
+    top: -260%;
+    transform: rotate(60deg); }
+  .seeds1::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: white;
+    border-radius: 40%;
+    box-shadow: inset -1px 2px #c9c9c9;
+    left: 180%;
+    top: -50%;
+    transform: rotate(60deg); }
 
 .seeds2 {
-  width: 10%;
-  height: 15%;
-  position: absolute;
-  background-color: white;
   left: 64%;
   top: 50%;
-  border-radius: 40%;
-  transform: rotate(10deg);
-  box-shadow: inset -3px 0 #c9c9c9; }
-
-.seeds2:before {
-  content: "";
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  background-color: white;
-  left: 150%;
-  top: -130%;
-  border-radius: 40%;
-  transform: rotate(90deg);
-  box-shadow: inset 1px 3px #c9c9c9; }
+  transform: rotate(10deg); }
+  .seeds2::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: white;
+    border-radius: 40%;
+    box-shadow: inset -1px 2px #c9c9c9;
+    left: 150%;
+    top: -130%;
+    transform: rotate(90deg); }
 
 .meat {
   width: 92%;
@@ -163,16 +184,16 @@ body {
     .ctrl-btn:disabled:hover {
       cursor: not-allowed; }
   .ctrl-btn--less {
-    background-color: #D39952;
+    background-color: #ca40ca;
     color: white; }
     .ctrl-btn--less:hover, .ctrl-btn--less:active {
-      background-color: #DAA972;
+      background-color: #df94df;
       color: white; }
   .ctrl-btn--more {
-    background-color: #8F5E1E;
+    background-color: darkviolet;
     color: white; }
     .ctrl-btn--more:hover, .ctrl-btn--more:active {
-      background-color: #99703F;
+      background-color: #ca40ca;
       color: white; }
 
 .label {
@@ -181,8 +202,8 @@ body {
   width: 80px; }
 
 .controls-list {
-  width: 100%;
-  background-color: #cf8f2e;
+  max-width: 90rem;
+  background-color: #ffaf19;
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -190,6 +211,84 @@ body {
   margin: auto;
   padding: 10px 0; }
 
+.order-button {
+  background-color: #DAD735;
+  outline: none;
+  cursor: pointer;
+  border: 1px solid #966909;
+  color: #966909;
+  font-family: inherit;
+  font-size: 1.2em;
+  padding: 15px 30px;
+  box-shadow: 2px 2px 2px #966909; }
+  .order-button:hover, .order-button:active {
+    background-color: #A0DB41;
+    border: 1px solid #966909; }
+  .order-button:disabled {
+    background-color: #C7C6C6;
+    cursor: not-allowed;
+    border: 1px solid #ccc;
+    color: #888888; }
+  .order-button:not(:disabled) {
+    animation: enable 0.3s linear; }
+
+@keyframes enable {
+  0% {
+    transform: scale(1); }
+  60% {
+    transform: scale(1.1); }
+  100% {
+    transform: scale(1); } }
+
+.ul-ingredients {
+  padding: 3rem; }
+
+.li-ingredient {
+  padding: 1rem;
+  background-color: #df94df;
+  list-style: none;
+  border: 1px solid darkviolet;
+  border-radius: 3px;
+  margin-bottom: 0.4rem;
+  font-weight: bold; }
+
 .content {
   margin-top: 1.6rem;
   padding: 3rem; }
+
+.backdrop {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  background-color: #222222;
+  opacity: .8; }
+
+.modal {
+  position: fixed;
+  z-index: 500;
+  background-color: #ffaf19;
+  width: 70%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px black;
+  padding: 3rem;
+  left: 15%;
+  top: 30%;
+  box-sizing: border-box;
+  transition: all 0.3s ease-out; }
+
+.show {
+  transform: translateY(0);
+  opacity: 1; }
+
+.hide {
+  transform: translateY(-100vh);
+  opacity: 0; }
+
+@media (min-width: 600px) {
+  .modal {
+    width: 500px;
+    left: calc(50% - 250px); } }

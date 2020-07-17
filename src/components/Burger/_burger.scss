@@ -1,29 +1,46 @@
 .burger {
-    width: 92%;
+    // position: fixed;
+    // left: 50%;
+    // right: 50%;
+    // transform: translate(-50%, -50%);
+    // need to wrapp the burger in another div
+    width: 90rem;
     margin: auto;
-    height: 25rem;
-    //overflow: scroll;
+    padding: 3rem;
+    height: 50vh;
+    overflow: scroll;
     text-align: center;
     font-weight: bold;
     font-size: 1.2rem;
 
-    @include respond(phone-portrait) {
-        width: 35rem;
-        height: 75vh;
+    @include respond(phone) {
+        width: 80%;
+        height: 45vh;
     }
 
-    @include respond(phone) {
-        width: 45rem;
-        height: 95vh;
+    @include respond(phone-portrait) {
+        width: 80%;
+        height: 50vh;
     }
 
     @include respond(tablet) {
-        width: 70rem;
-        height: 85vh;
+        width: 80%;
+        height: 50vh;
     }
 
     &__text {
         font-size: 5rem;
         font-weight: normal;
+
+        @include respond(phone) {
+            font-size: 2rem;
+        }
+        @include respond(phone-portrait) {
+            font-size: 3rem;
+        }
+
+        @include respond(tablet) {
+            font-size: 3.5rem;
+        }
     }
 }

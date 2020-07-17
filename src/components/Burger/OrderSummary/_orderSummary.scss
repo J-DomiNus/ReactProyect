@@ -1,0 +1,13 @@
+.ul-ingredients {
+    padding: 3rem;
+}
+
+.li-ingredient {
+    padding: 1rem;
+    background-color: $color-secondary-light;
+    list-style: none;
+    border: 1px solid $color-secondary-dark;
+    border-radius: 3px;
+    margin-bottom: 0.4rem;
+    font-weight: bold;
+}

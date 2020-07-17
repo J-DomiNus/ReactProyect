@@ -11,8 +11,8 @@ class BurgerIngredient extends Component {
                 break;
             case ('bread-top'):
                 ingredient = (<div className='bread__top'>
-                    <div className='seeds1'></div>
-                    <div className='seeds2'></div>
+                    <div className='seeds seeds1'></div>
+                    <div className='seeds seeds2'></div>
                 </div>
                 );
                 break;
@@ -42,3 +42,4 @@ BurgerIngredient.propTypes = {
 };
 
 export default BurgerIngredient;
+

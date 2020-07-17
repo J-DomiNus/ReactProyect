@@ -1,11 +1,15 @@
-@mixin SeedsAfterBefore {
-    content: "";
-    width: 100%;
-    height: 100%;
+@mixin Seeds {
     position: absolute;
     background-color: white;
     border-radius: 40%;
     box-shadow: inset -1px 2px #c9c9c9;
+}
+
+@mixin SeedsAfterBefore {
+    content: "";
+    width: 100%;
+    height: 100%;
+    @include Seeds;
 }
 
 $margin-ingredients: 2% auto;
@@ -29,68 +33,44 @@ $margin-ingredients: 2% auto;
     }
 }
 
-.seeds1 {
+.seeds {
     width: 10%;
     height: 15%;
-    position: absolute;
-    background-color: white;
+    @include Seeds;
+    
+}
+.seeds1 {
     left: 30%;
     top: 50%;
-    border-radius: 40%;
     transform: rotate(-20deg);
-    box-shadow: inset -2px -3px #c9c9c9;
+
+    &::after {
+        @include SeedsAfterBefore;
+        left: -170%;
+        top: -260%;
+        transform: rotate(60deg);
+    }
+
+    &::before {
+        @include SeedsAfterBefore;
+        left: 180%;
+        top: -50%;
+        transform: rotate(60deg);
+    }
 }
 
-.seeds1:after {
-    content: "";
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background-color: white;
-    left: -170%;
-    top: -260%;
-    border-radius: 40%;
-    transform: rotate(60deg);
-    box-shadow: inset -1px 2px #c9c9c9;
-  }
-  
-.seeds1:before {
-    content: "";
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background-color: white;
-    left: 180%;
-    top: -50%;
-    border-radius: 40%;
-    transform: rotate(60deg);
-    box-shadow: inset -1px -3px #c9c9c9;
-  }
-
-  .seeds2 {
-    width: 10%;
-    height: 15%;
-    position: absolute;
-    background-color: white;
+.seeds2 {
     left: 64%;
     top: 50%;
-    border-radius: 40%;
     transform: rotate(10deg);
-    box-shadow: inset -3px 0 #c9c9c9;
-  }
-  
-  .seeds2:before {
-    content: "";
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background-color: white;
-    left: 150%;
-    top: -130%;
-    border-radius: 40%;
-    transform: rotate(90deg);
-    box-shadow: inset 1px 3px #c9c9c9;
-  }
+
+    &::before {
+        @include SeedsAfterBefore;
+        left: 150%;
+        top: -130%;
+        transform: rotate(90deg);
+    }
+}
 
 .meat {
     width: 92%;

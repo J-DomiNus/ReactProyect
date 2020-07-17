@@ -28,24 +28,24 @@
     }
 
     &--less {
-        background-color: #D39952;
-        color: white;
+        background-color: $color-secondary;
+        color: $color-buttons;
 
         &:hover,
         &:active {
-            background-color: #DAA972;
-            color: white;
+            background-color:$color-secondary-light;
+            color: $color-buttons;
         }
     }
 
     &--more {
-        background-color: #8F5E1E;
-        color: white;
+        background-color: $color-secondary-dark;
+        color: $color-buttons;
 
         &:hover,
         &:active {
-            background-color: #99703F;
-            color: white;
+            background-color:  $color-secondary;
+            color: $color-buttons;
         }
     }
 }
