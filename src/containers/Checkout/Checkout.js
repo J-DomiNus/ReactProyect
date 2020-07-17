@@ -7,7 +7,8 @@ import ContactData from './ContactData/ContactData';
 class Checkout extends Component {
     state = {
         ingredients: null,
-        price: 0
+        price: 0,
+        displayForm: false
     }
 
     componentWillMount () {
@@ -33,22 +34,28 @@ class Checkout extends Component {
 
     checkoutContinuedHandler = () => {
         this.props.history.replace('/checkout/contact-data');
+        this.setState({displayForm: true})
     }
 
     render () {
-        return (
-            <div>
-                <CheckoutSummary 
+        let output = (
+            <CheckoutSummary 
                 ingredients={this.state.ingredients}
                 checkoutCanceled={this.checkoutCanceledHandler}
                 checkoutContinued={this.checkoutContinuedHandler} />
-                <Route 
-                    path={this.props.match.path + '/contact-data'} 
-                    render={(props) => (<ContactData ingredients={this.state.ingredients} 
-                                                totalPrice={this.state.price}
-                                                {...props} />)} >
-                </Route>
-                    {/* {...props} => sending URLparams with the render */}
+        )
+        if (this.state.displayForm) {
+            output = <Route 
+            path={this.props.match.path + '/contact-data'} 
+            render={(props) => (<ContactData ingredients={this.state.ingredients} 
+                                        totalPrice={this.state.price}
+                                        {...props} />)} >
+        </Route>
+        // {...props} => sending URLparams with the render
+        }
+        return (
+            <div>
+                {output}
             </div>
         )
     }

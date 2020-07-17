@@ -1,0 +1,29 @@
+.input-form {
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.label-form {
+    font-weight: bold;
+    display: block;
+    margin-bottom: .8rem;
+}
+
+.inputElement {
+    outline: none;
+    border: 1px solid #ccc;
+    background-color: white;
+    font: inherit;
+    padding: .6rem 1rem;
+    width: 100%;
+    display: block;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.invalid {
+    background-color: $color-primary-light;
+}

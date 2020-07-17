@@ -4,7 +4,7 @@ import Button from '../../UI/Button/Button';
 
 const checkoutSummary = (props) => {
     return (
-        <div className='checkoutSummary'>
+        <div className='checkoutSummary u-margin-top-large'>
             <h1 className='heading-primary'>We hope it tastes well!</h1>
             <div style={{width: '100%', margin: 'auto'}}>
                 <Burger ingredients={props.ingredients}/>

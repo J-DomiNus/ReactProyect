@@ -1,31 +1,20 @@
 .contactData {
-    margin: 2rem auto;
+    // margin: 10rem auto;
     padding: 3rem 2rem;
     border-radius: 5px;
     box-shadow: 3px 4px rgba(#ddd,.8);
+    border: 1px solid #ddd;
     width: 80%;
     text-align: center;
-    position: relative;
-    background-color: $color-primary;
+    position: fixed;
+    top: 10%;
+    left: 10%;
+    background-color: white;
+    transition: all .5 ease-out;
 }
 
 @media (min-width: 60rem) {
     .contactData {
         width: 50rem;
-    }
-}
-
-.Form {
-    padding: 2rem;
-}
-
-.Form input{
-    display: block;
-    margin: 1rem;
-    padding: .8rem;
-    width: 100%;
-
-    &:last-of-type {
-        border-bottom: 1rem;
     }
 }

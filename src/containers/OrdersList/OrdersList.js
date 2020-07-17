@@ -28,7 +28,7 @@ class OrdersList extends Component {
     }
     render () {
         return (
-            <div>
+            <div className='u-margin-top-large'>
                 {this.state.orders.map(order => (
                     <Order key={order.id} 
                             ingredients={order.ingredients}
