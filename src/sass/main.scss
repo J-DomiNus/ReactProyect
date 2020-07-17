@@ -8,10 +8,12 @@
 
 @import '../components/Burger/burger';
 @import '../components/Burger/BurgerIngredient/burgerIngredient';
-@import '../components/Burger/Controls/BuildControl/buildControl';
 @import '../components/Burger/Controls/controlsList';
 @import '../components/Burger/OrderSummary/orderSummary';
 @import '../components/Layout/layout';
 @import '../components/UI/Backdrop/backdrop';
 @import '../components/UI/Modal/modal';
+
+@import './elements/buttons';
+@import './elements/wrappers';
 

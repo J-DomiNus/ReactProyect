@@ -2,16 +2,16 @@ import React from 'react';
 
 
 const buildControl = (props) => (
-    <div className='build-control'>
+    <div className='build-control-wrapper'>
         <div className='label'>{props.label}</div>
         <button 
-            className='ctrl-btn ctrl-btn--less'
+            className='generic-buttons light'
             onClick={props.removed}
             disabled={props.disableButton}>
             Less
             </button>
         <button 
-            className='ctrl-btn ctrl-btn--more'
+            className='generic-buttons dark'
             onClick={props.added}>
             More
             </button>

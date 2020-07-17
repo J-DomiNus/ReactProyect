@@ -57,18 +57,22 @@ class BurgerBuilder extends Component {
             .reduce((sum, el) => {
                 return sum + el;
             }, 0);
-            console.log('ingredients: ' + totalIngredients);
+            //console.log('ingredients: ' + totalIngredients);
         this.setState({enableOrderButton: totalIngredients > 0})
-        console.log(this.state.enableOrderButton)
+        //console.log(this.state.enableOrderButton)
     }
 
     displayOrderBoxHandler = () => {
-        console.log('displayOrderBoxHandler')
+        //console.log('displayOrderBoxHandler')
         this.setState({displayOrderBox: true});
     }
 
     closeOrderBoxHandler = () => {
         this.setState({displayOrderBox: false});
+    }
+
+    orderContinuedHandler = () => {
+        console.log('orderContinuedHandler');
     }
     
     render () {
@@ -83,7 +87,10 @@ class BurgerBuilder extends Component {
             <Auxiliar>
                 <Modal display={this.state.displayOrderBox}
                         closeModal={this.closeOrderBoxHandler}>
-                    <OrderSummary ingredientsObject={this.state.ingredients}/>
+                    <OrderSummary ingredientsObject={this.state.ingredients}
+                                    orderCanceled={this.closeOrderBoxHandler}
+                                    continueOrder={this.orderContinuedHandler}
+                                    totalPrice={this.state.totalPrice}/>
                 </Modal>
                 <Burger 
                 ingredientsObject={this.state.ingredients}/>

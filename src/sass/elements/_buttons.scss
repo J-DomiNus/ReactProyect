@@ -1,0 +1,42 @@
+.generic-buttons {
+    display: block;
+    font: inherit;
+    padding: 5px;
+    margin: 0 5px;
+    width: 80px;
+    cursor: pointer;
+    outline: none;
+
+    &:disabled {
+        background-color: #AC9980;
+        border: 1px solid #7E7365;
+        color: #ccc;
+        cursor: default;
+
+        &:hover {
+            cursor: not-allowed;
+        }
+    }
+}
+
+.light {
+    background-color: $color-secondary;
+    color: $color-buttons;
+
+    &:hover,
+    &:active {
+        background-color:$color-secondary-light;
+        color: $color-buttons;
+    }
+}
+
+.dark {
+    background-color: $color-secondary-dark;
+    color: $color-buttons;
+
+    &:hover,
+    &:active {
+        background-color:  $color-secondary;
+        color: $color-buttons;
+    }
+}

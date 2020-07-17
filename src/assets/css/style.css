@@ -17,12 +17,25 @@ body {
   font-size: 1.6rem;
   box-sizing: border-box; }
 
-.heading-tertiary {
+.heading-secondary {
   text-align: center;
   font-size: 3rem;
   font-weight: 700;
   color: white;
+  padding: 2rem;
+  text-transform: uppercase; }
+
+.price {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 700;
+  color: orangered;
   padding: 2rem; }
+
+.label {
+  padding: 10px;
+  font-weight: bold;
+  width: 80px; }
 
 .u-margin-bottom-small {
   margin-bottom: 1.5rem !important; }
@@ -34,7 +47,7 @@ body {
   text-align: center !important; }
 
 .burger {
-  width: 90rem;
+  width: 65rem;
   margin: auto;
   padding: 3rem;
   height: 50vh;
@@ -52,20 +65,20 @@ body {
       height: 50vh; } }
   @media (max-width: 62.5em) {
     .burger {
-      width: 80%;
+      width: 70%;
       height: 50vh; } }
   .burger__text {
     font-size: 5rem;
     font-weight: normal; }
     @media (max-width: 31.25em) {
       .burger__text {
-        font-size: 2rem; } }
+        font-size: 1.5rem; } }
     @media (max-width: 45em) {
       .burger__text {
-        font-size: 3rem; } }
+        font-size: 2rem; } }
     @media (max-width: 62.5em) {
       .burger__text {
-        font-size: 3.5rem; } }
+        font-size: 3rem; } }
 
 .bread {
   width: 80%;
@@ -161,48 +174,8 @@ body {
   background: linear-gradient(#bf3813, #c45e38);
   margin: 2% auto; }
 
-.build-control {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 5px 0; }
-
-.ctrl-btn {
-  display: block;
-  font: inherit;
-  padding: 5px;
-  margin: 0 5px;
-  width: 80px;
-  border: 1px solid #AA6817;
-  cursor: pointer;
-  outline: none; }
-  .ctrl-btn:disabled {
-    background-color: #AC9980;
-    border: 1px solid #7E7365;
-    color: #ccc;
-    cursor: default; }
-    .ctrl-btn:disabled:hover {
-      cursor: not-allowed; }
-  .ctrl-btn--less {
-    background-color: #ca40ca;
-    color: white; }
-    .ctrl-btn--less:hover, .ctrl-btn--less:active {
-      background-color: #df94df;
-      color: white; }
-  .ctrl-btn--more {
-    background-color: darkviolet;
-    color: white; }
-    .ctrl-btn--more:hover, .ctrl-btn--more:active {
-      background-color: #ca40ca;
-      color: white; }
-
-.label {
-  padding: 10px;
-  font-weight: bold;
-  width: 80px; }
-
 .controls-list {
-  max-width: 90rem;
+  max-width: 80rem;
   background-color: #ffaf19;
   display: flex;
   flex-flow: column;
@@ -241,7 +214,8 @@ body {
     transform: scale(1); } }
 
 .ul-ingredients {
-  padding: 3rem; }
+  padding: 3rem;
+  padding-bottom: 1rem; }
 
 .li-ingredient {
   padding: 1rem;
@@ -276,7 +250,7 @@ body {
   box-shadow: 1px 1px 1px black;
   padding: 3rem;
   left: 15%;
-  top: 30%;
+  top: 15%;
   box-sizing: border-box;
   transition: all 0.3s ease-out; }
 
@@ -292,3 +266,44 @@ body {
   .modal {
     width: 500px;
     left: calc(50% - 250px); } }
+
+.generic-buttons {
+  display: block;
+  font: inherit;
+  padding: 5px;
+  margin: 0 5px;
+  width: 80px;
+  cursor: pointer;
+  outline: none; }
+  .generic-buttons:disabled {
+    background-color: #AC9980;
+    border: 1px solid #7E7365;
+    color: #ccc;
+    cursor: default; }
+    .generic-buttons:disabled:hover {
+      cursor: not-allowed; }
+
+.light {
+  background-color: #ca40ca;
+  color: white; }
+  .light:hover, .light:active {
+    background-color: #df94df;
+    color: white; }
+
+.dark {
+  background-color: darkviolet;
+  color: white; }
+  .dark:hover, .dark:active {
+    background-color: #ca40ca;
+    color: white; }
+
+.build-control-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 0; }
+
+.order-summary-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem; }

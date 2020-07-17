@@ -1,7 +1,22 @@
-.heading-tertiary {
+.heading-secondary {
     text-align: center;
     font-size: 3rem;
     font-weight: 700;
     color: $color-headings;
     padding: 2rem;
+    text-transform: uppercase;
+}
+
+.price {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 700;
+    color: $color-price;
+    padding: 2rem;
+}
+
+.label {
+    padding: 10px;
+    font-weight: bold;
+    width: 80px;
 }
