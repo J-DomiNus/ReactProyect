@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import * as actionCreator from '../../../store/actions/IndexActions'
 
 import Spinner from '../../../components/UI/Spinner/Spinner';
 import Input from '../../../components/UI/FormInputs/Input';
 import axios from '../../../axios-orders';
+import withErrorHanlder from '../../../hoc/withErrorHandler/ErrorHandler'
 
 
 
@@ -89,31 +92,21 @@ class ContactData extends Component {
                 valid: true
             },
         },
-        formIsValid: false,
-        loading: false
+        formIsValid: false
     }
 
     orderHandler = (event) => {
         event.preventDefault();
-        this.setState({loading: true})
         const formData = {}
         for (let formElementIdentifier in this.state.orderForm) {
             formData[formElementIdentifier] = this.state.orderForm[formElementIdentifier].value
         }
-        console.log(formData)
         const order = {
-            ingredients: this.props.ingredients,
-            price: this.props.totalPrice,
+            ingredients: this.props.localIngredients,
+            price: this.props.localTotalPrice,
             orderData: formData
         }
-        axios.post('/order.json', order)
-            .then(response => {
-                this.setState({loading: false});
-                this.props.history.push('/');
-            })
-            .catch(error => {
-                this.setState({loading: false})
-            })
+        this.props.onPostOrder(order)
     }
 
     checkValidity (value, rules) {
@@ -138,7 +131,6 @@ class ContactData extends Component {
         updatedFormElement.value = event.target.value;
         updatedFormElement.focus = true;
         updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation)
-        console.log(updatedFormElement)
         updatedOrderForm[inputIdentifier] = updatedFormElement
         
         let formIsValid = true;
@@ -174,7 +166,7 @@ class ContactData extends Component {
                 <button className='order-button' disabled={!this.state.formIsValid}>Order</button>
             </form>
         )
-        if (this.state.loading) {
+        if (this.props.loading) {
             form = <Spinner />
         }
 
@@ -187,4 +179,19 @@ class ContactData extends Component {
     }
 }
 
-export default ContactData;
+const mapStateToProps = state => {
+    return {
+        localIngredients: state.burgerBuilder.ingredients,
+        localTotalPrice: state.burgerBuilder.totalPrice,
+        loading: state.order.loading,
+    }
+}
+
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onPostOrder: (orderData) => dispatch(actionCreator.postOrderToServer(orderData))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withErrorHanlder(ContactData, axios));
