@@ -9,3 +9,7 @@ export {
     orderInit,
     fetchOrders
 } from './OrderActions'
+
+export {
+    auth
+} from './authentication'
