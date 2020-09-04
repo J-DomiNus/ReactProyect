@@ -6,5 +6,6 @@ export {
 
 export {
     postOrderToServer,
-    orderInit
+    orderInit,
+    fetchOrders
 } from './OrderActions'

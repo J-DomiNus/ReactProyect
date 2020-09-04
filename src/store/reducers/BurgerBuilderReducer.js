@@ -1,4 +1,5 @@
-import * as actionTypes from '../actions/actionTypes'
+import * as actionTypes from '../actions/actionTypes';
+import  {updateObject} from '../utility';
 
 const initialState = {
     ingredients: null,
@@ -10,32 +11,28 @@ const initialState = {
 const burgerBuilderReducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.ADD_INGREDIENT:
-            return {
-                ...state,
-                ingredients: {
-                    ...state.ingredients,
-                    [action.ingredientName]: state.ingredients[action.ingredientName] + 1
-                },
+            const addUpdatedIngredient = { [action.ingredientName]: state.ingredients[action.ingredientName] +1 }
+            const addUpdatedIngredients = updateObject(state.ingredients, addUpdatedIngredient);
+            const addUpdatedState = {
+                ingredients: addUpdatedIngredients,
                 totalPrice: state.totalPrice + state.ingredientsPrices[action.ingredientName]
             }
+            return updateObject(state, addUpdatedState);
         case actionTypes.REMOVE_INGREDIENT: 
-            return {
-            ...state,
-                ingredients: {
-                    ...state.ingredients,
-                    [action.ingredientName]: state.ingredients[action.ingredientName] - 1
-            },
-            totalPrice: state.totalPrice - state.ingredientsPrices[action.ingredientName]
-        }
+            const removeUpdatedIngredient = { [action.ingredientName]: state.ingredients[action.ingredientName] - 1 }
+            const removeUpdatedIngredients = updateObject(state.ingredients, removeUpdatedIngredient);
+            const removeUpdatedState = {
+                ingredients: removeUpdatedIngredients,
+                totalPrice: state.totalPrice + state.ingredientsPrices[action.ingredientName]
+            }
+            return updateObject(state, removeUpdatedState);
         case actionTypes.SET_PRICES:
-            return {
-                ...state,
+            return updateObject( state, {
                 ingredientsPrices: action.prices,
                 totalPrice: action.basePrice
-            }
+            })
         case actionTypes.SET_INGREDIENTS:
-            return {
-                ...state,
+            return updateObject(state,{
                 ingredients: {
                     tomato: action.ingredients.tomato,
                     salad: action.ingredients.salad,
@@ -44,12 +41,11 @@ const burgerBuilderReducer = (state = initialState, action) => {
                     meat: action.ingredients.meat
                 },
                 error: false
-            }
+            })
         case actionTypes.FETCH_DATA_FAILED:
-            return {
-                ...state,
+            return updateObject( state, {
                 error: true
-            }
+            })
         default:
             return state;
     }
