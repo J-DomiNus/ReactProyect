@@ -7,44 +7,65 @@ const initialState = {
     orderPosted: false
 }
 
+const orderInit = (state, action) => {
+    return updateObject(state, {
+        orderPosted: false
+    })
+}
+
+const postOrderStart = (state, action) => {
+    return updateObject( state, {
+        loading:true
+    })
+}
+
+const postOrderSucceded = (state, action) => {
+    const newOrder = updateObject(action.orderData, {
+        id: action.orderId,
+    })
+    return updateObject( state, {
+        loading: false,
+        orders: state.orders.concat(newOrder),
+        orderPosted: true
+    })
+}
+
+const postOrderFailed = (state, action) => {
+    return updateObject(state, {
+        loading: false
+    })
+}
+
+const fetchOrdersStart = (state, action) => {
+    return updateObject(state, {
+        loading: true
+    })
+}
+
+const fetchOrdersSuccess = (state, action) => {
+    return updateObject( state, {
+        orders: action.orders,
+        loading: false
+    })
+}
+
+const fetchOrdersFail = (state, action) => {
+    return updateObject( state, {
+        loading: false
+    })
+}
+
 const orderReducer = (state = initialState, action) => {
-        switch (action.type) {
-            case actionTypes.ORDER_INIT:
-                return updateObject(state, {
-                    orderPosted: false
-                })
-            case actionTypes.POST_ORDER_START:
-                return updateObject( state, {
-                    loading:true
-                })
-            case actionTypes.POST_ORDER_SUCCEDED:
-                const newOrder = updateObject(action.orderData, {
-                    id: action.orderId,
-                })
-                return updateObject( state, {
-                    loading: false,
-                    orders: state.orders.concat(newOrder),
-                    orderPosted: true
-                })
-            case actionTypes.POST_ORDER_FAILED:
-                return updateObject(state, {
-                    loading: false
-                })
-            case actionTypes.FETCH_ORDERS_START:
-                return updateObject(state, {
-                    loading: true
-                })
-            case actionTypes.FETCH_ORDERS_SUCCESS:
-                return updateObject( state, {
-                    orders: action.orders,
-                    loading: false
-                })
-            case actionTypes.FETCH_ORDERS_FAIL:
-                return updateObject( state, {
-                    loading: false
-                })
-            default: return state
-        }
+    switch (action.type) {
+        case actionTypes.ORDER_INIT: return orderInit(state, action);
+        case actionTypes.POST_ORDER_START: return postOrderStart(state, action);
+        case actionTypes.POST_ORDER_SUCCEDED: return postOrderSucceded(state, action);
+        case actionTypes.POST_ORDER_FAILED: return postOrderFailed(state, action);
+        case actionTypes.FETCH_ORDERS_START: return fetchOrdersStart(state, action);
+        case actionTypes.FETCH_ORDERS_SUCCESS: return fetchOrdersSuccess(state, action);
+        case actionTypes.FETCH_ORDERS_FAIL: return fetchOrdersFail(state, action);
+        default: return state
+    }
 }
 
 export default orderReducer;
