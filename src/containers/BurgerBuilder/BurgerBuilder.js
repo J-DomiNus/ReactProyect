@@ -34,8 +34,14 @@ class BurgerBuilder extends Component {
     }
 
     displayOrderBoxHandler = () => {
-        //console.log('displayOrderBoxHandler')
-        this.setState({displayOrderBox: true});
+        if (this.props.isAuthenticated) {
+            this.setState({displayOrderBox: true});
+        } 
+        else {
+            this.props.onSetAuthRedirectPath('/checkout')
+            this.props.history.push('/authentication')
+        }
+        
     }
 
     closeOrderBoxHandler = () => {
@@ -46,6 +52,7 @@ class BurgerBuilder extends Component {
         this.props.onOrderPosted()
         this.props.history.push('/checkout')
     }
+
     render () {
         const disableButtonInfo = {
             ...this.props.localIngredients
@@ -67,6 +74,7 @@ class BurgerBuilder extends Component {
                     <Burger 
                     ingredients={this.props.localIngredients}/>
                     <ControlsList 
+                        isAuthenticated={this.props.isAuthenticated}
                         ingredientAdded={this.props.onAddIngredient}
                         ingredientRemoved={this.props.onRemoveIngredient}
                         disableButton={disableButtonInfo}
@@ -98,7 +106,8 @@ const mapStateToProps = state => {
     return {
         localIngredients: state.burgerBuilder.ingredients,
         localTotalPrice: state.burgerBuilder.totalPrice,
-        error: state.burgerBuilder.error
+        error: state.burgerBuilder.error,
+        isAuthenticated: state.auth.token !== null
     };
 }
 
@@ -107,7 +116,8 @@ const mapDispatchToProps = dispatch => {
         onAddIngredient: (ingName) => dispatch(actions.addIngredient(ingName)),
         onRemoveIngredient: (ingName) => dispatch(actions.removeIngredient(ingName)),
         onInitStateFromServer: () => dispatch(actions.initStateFromServer()),
-        onOrderPosted: () => dispatch(actions.orderInit())
+        onOrderPosted: () => dispatch(actions.orderInit()),
+        onSetAuthRedirectPath: (path) => dispatch(actions.setAuthRedirectPath(path))
     }
 }
 

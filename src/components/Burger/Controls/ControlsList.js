@@ -21,7 +21,7 @@ const controlsList = (props) => (
                 ))}
                 <button className='order-button'
                         onClick={props.displayOrderBox}
-                        disabled={!props.enableOrderButton}>Order now</button>
+                        disabled={!props.enableOrderButton}>{props.isAuthenticated ? 'ORDER NOW' : 'SIGN UP TO ORDER'}</button>
         </div>
 )
 

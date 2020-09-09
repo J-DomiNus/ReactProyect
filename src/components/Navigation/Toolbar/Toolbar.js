@@ -7,7 +7,8 @@ const toolbar = (props) => (
     <header className='toolbar'>
         <MenuButton displaySideDrew={props.displaySideDrew}/>
         <nav className='nav__desktop-only__wrapper'>
-            <NavigationList />
+            <NavigationList 
+                isAuthenticated = {props.isAuthenticated}/>
         </nav>
         <div className='toolbar__logo__wrapper'>
             <Logo />
