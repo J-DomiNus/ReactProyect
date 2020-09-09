@@ -3,7 +3,7 @@ import Layout from './hoc/Layout/Layout';
 import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder';
 import Checkout from './containers/Checkout/Checkout';
 import OrdersList from './containers/OrdersList/OrdersList';
-import { Route, Switch, withRouter } from 'react-router-dom';
+import { Route, Switch, withRouter, Redirect } from 'react-router-dom';
 import Authentication from './containers/Authentication/Authentication';
 import Logout from './containers/Authentication/Logout/Logout';
 import { connect } from 'react-redux';
@@ -16,19 +16,41 @@ class App extends Component {
   }
 
   render () {
-    return (
-        <div>
-          <Layout>
-            <Switch>
-              <Route path='/checkout' component={Checkout} />
-              <Route path='/orderslist' component={OrdersList} />
-              <Route path='/authentication' component={Authentication} />
-              <Route path='/logout' component={Logout} />
-              <Route path='/' component={BurgerBuilder} />
-            </Switch>
-          </Layout>
-        </div>
+
+    let routes = (
+      <Switch>
+        <Route path="/authentication" component={Authentication} />
+        <Route path="/" exact component={BurgerBuilder} />
+        <Redirect to="/" />
+      </Switch>
     );
+
+    if ( this.props.isAuthenticated ) {
+      routes = (
+        <Switch>
+          <Route path="/authentication" component={Authentication} />
+          <Route path="/checkout" component={Checkout} />
+          <Route path="/orders" component={OrdersList} />
+          <Route path="/logout" component={Logout} />
+          <Route path="/" exact component={BurgerBuilder} />
+          <Redirect to="/" />
+        </Switch>
+      );
+    }
+
+    return (
+      <div>
+        <Layout>
+          {routes}
+        </Layout>
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    isAuthenticated: state.auth.token !== null
   }
 }
 
@@ -38,4 +60,5 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(App);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
+

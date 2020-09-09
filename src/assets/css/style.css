@@ -243,12 +243,8 @@ body {
 
 .checkoutSummary {
   text-align: center;
-  width: 100%;
+  width: 80%;
   margin: 0 auto; }
-
-@media (min-width: 600px) {
-  .checkoutSummary {
-    width: 70rem; } }
 
 .contactData {
   padding: 3rem 2rem;

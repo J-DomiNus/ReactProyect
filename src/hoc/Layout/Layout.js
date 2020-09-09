@@ -6,15 +6,15 @@ import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
 
 class Layout extends Component {
     state = {
-        displaySideDrew: false
+        displaySideDraw: false
     }
 
-    displaySideDrewHandler = () => {
-        this.setState({displaySideDrew: true});
+    displaySideDrawHandler = () => {
+        this.setState({displaySideDraw: true});
     }
 
-    closeSideDrewHandler = () => {
-        this.setState({displaySideDrew: false});
+    closeSideDrawHandler = () => {
+        this.setState({displaySideDraw: false});
     }
 
     render () {
@@ -22,11 +22,11 @@ class Layout extends Component {
             <Auxiliar>
                 <SideDrawer 
                     isAuthenticated = {this.props.isAuthenticated}
-                    display={this.state.displaySideDrew}
-                    closeSideDrew={this.closeSideDrewHandler} />
+                    display={this.state.displaySideDraw}
+                    closeSideDraw={this.closeSideDrawHandler} />
                 <Toolbar 
                     isAuthenticated = {this.props.isAuthenticated}
-                    displaySideDrew={this.displaySideDrewHandler}/>
+                    displaySideDraw={this.displaySideDrawHandler}/>
                 <SideDrawer />
                 <main className='content'>
                     {this.props.children}

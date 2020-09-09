@@ -54,7 +54,7 @@ export const initPrices = () => {
                 dispatch(setPrices(response.data, response.data.baseprice))
             })
             .catch(error => {
-                dispatch()
+                dispatch(error)
             })
     }
 }

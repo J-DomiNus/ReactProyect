@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
 import thunk from 'redux-thunk';
+import { BrowserRouter } from 'react-router-dom';
 
 import BurgerBuilderReducer from './store/reducers/BurgerBuilderReducer'
 import OrderReducer from './store/reducers/OrderReducer';
@@ -25,9 +26,11 @@ const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
 ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
   </React.StrictMode>
-  </Provider>,
+</Provider>,
   document.getElementById('root')
 );
 

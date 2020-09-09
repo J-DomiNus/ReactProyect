@@ -5,7 +5,7 @@ import MenuButton from '../SideDrawer/MenuButton';
 
 const toolbar = (props) => (
     <header className='toolbar'>
-        <MenuButton displaySideDrew={props.displaySideDrew}/>
+        <MenuButton displaySideDraw={props.displaySideDraw}/>
         <nav className='nav__desktop-only__wrapper'>
             <NavigationList 
                 isAuthenticated = {props.isAuthenticated}/>

@@ -17,8 +17,9 @@ const sideDrawer = (props) => {
     }
     return (
         <Auxiliar>
-            <Backdrop show={props.display} clicked={props.closeSideDrew}/>
-            <div className={styles.join(' ')}>
+            <Backdrop show={props.display} clicked={props.closeSideDraw}/>
+            <div className={styles.join(' ')}
+                onClick={props.closeSideDraw}>
                 <div className='side-drawer__logo__wrapper'>
                     <Logo />
                 </div>
