@@ -11,7 +11,8 @@ import { connect } from 'react-redux'
 import * as actions from '../../store/actions/IndexActions';
 
 
-class BurgerBuilder extends Component {
+export class BurgerBuilder extends Component { 
+//exported here for testing, also exported bellow with 'connect' and 'errorHandler' and 'axios'
     state = {
         displayOrderBox: false,
     }
