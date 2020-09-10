@@ -17,9 +17,7 @@ class BurgerBuilder extends Component {
     }
 
     componentDidMount () {
-        console.log('burgerbuilder');
         this.props.onInitStateFromServer();
-        
     }
 
     enableOrderButtonHandler (updatedIngredients) {

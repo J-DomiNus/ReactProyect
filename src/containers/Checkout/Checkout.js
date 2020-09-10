@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import { Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
-import * as actionCreator from '../../store/actions/IndexActions'
+
 import CheckoutSummary from '../../components/Order/CheckoutSummary/CheckoutSummary';
 import ContactData from './ContactData/ContactData';
 

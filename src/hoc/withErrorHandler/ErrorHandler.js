@@ -9,7 +9,7 @@ const withErrorHandler = (WrappedComponents, axios) => {
             error: null
         }
 
-        UNSAFE_componentWillMount () {
+        componentWillMount () {
             this.requestInterceptor = axios.interceptors.request.use(req => {
                 this.setState({error: null});
                 return req;
@@ -19,7 +19,7 @@ const withErrorHandler = (WrappedComponents, axios) => {
             })
         }
 
-        UNSAFE_componentWillMount () {
+        componentWillUnmount () {
             axios.interceptors.request.eject(this.requestInterceptor);
             axios.interceptors.response.eject(this.responseInterceptor);
             //not  working now, but is an example to how remove this interceptors when they are no longer needed

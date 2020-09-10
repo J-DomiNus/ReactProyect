@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 
 import Input from '../../components/UI/FormInputs/Input';
 import Spinner from '../../components/UI/Spinner/Spinner';
+import { updateObject, checkValidity } from '../../shared/utility';
 
 import * as actions from '../../store/actions/IndexActions';
 
@@ -48,32 +49,16 @@ class Authentication extends Component {
         }
     }
 
-    checkValidity (value, rules) {
-        let isValid = true;
-        if (rules.required) {
-            isValid = value.trim() !== '' && isValid; 
-            // && isValid is used because of the element in the state that has no 'valid' element
-        }
-        if (rules.minLength) {
-            isValid = value.length >= rules.minLength && isValid;
-        }
-        if (rules.maxLength) {
-            isValid = value.length <= rules.maxLength && isValid;
-        }
-
-        return isValid
-    }
-
     inputChangedHandler = (event, controlName) => {
-        const updatedControls = {
-            ...this.state.controls,
-            [controlName]: {
-                ...this.state.controls[controlName],
+
+            const updatedControl = updateObject(this.state.controls[controlName], {
                 value: event.target.value,
-                valid: this.checkValidity(event.target.value, this.state.controls[controlName].validation),
+                valid: checkValidity(event.target.value, this.state.controls[controlName].validation),
                 touched: true
-            }
-        };
+            });
+            const updatedControls = updateObject(this.state.controls, {
+                [controlName]: updatedControl
+            })
         this.setState({controls: updatedControls});
     }
 

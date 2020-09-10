@@ -5,7 +5,8 @@ import * as actionCreator from '../../../store/actions/IndexActions'
 import Spinner from '../../../components/UI/Spinner/Spinner';
 import Input from '../../../components/UI/FormInputs/Input';
 import axios from '../../../axios-orders';
-import withErrorHanlder from '../../../hoc/withErrorHandler/ErrorHandler'
+import withErrorHanlder from '../../../hoc/withErrorHandler/ErrorHandler';
+import { updateObject, checkValidity } from '../../../shared/utility';
 
 
 
@@ -23,7 +24,7 @@ class ContactData extends Component {
                     required: true
                 },
                 valid: false,
-                focus: false
+                touched: false
             },
             email: {
                 elementType: 'input',
@@ -36,7 +37,7 @@ class ContactData extends Component {
                     required: true
                 },
                 valid: false,
-                focus: false
+                touched: false
             },
             street: {
                 elementType: 'input',
@@ -49,7 +50,7 @@ class ContactData extends Component {
                     required: true
                 },
                 valid: false,
-                focus: false
+                touched: false
             },
             zipcode: {
                 elementType: 'input',
@@ -64,7 +65,7 @@ class ContactData extends Component {
                     maxLength: 8
                 },
                 valid: false,
-                focus: false
+                touched: false
             },
             country: {
                 elementType: 'input',
@@ -77,7 +78,7 @@ class ContactData extends Component {
                     required: true,
                 },
                 valid: false,
-                focus: false
+                touched: false
             },
             deliveryMethod: {
                 elementType: 'select',
@@ -110,29 +111,16 @@ class ContactData extends Component {
         this.props.onPostOrder(order, this.props.token)
     }
 
-    checkValidity (value, rules) {
-        let isValid = true;
-        if (rules.required) {
-            isValid = value.trim() !== '' && isValid; 
-            // && isValid is used because of the element in the state that has no 'valid' element
-        }
-        if (rules.minLength) {
-            isValid = value.length >= rules.minLength && isValid;
-        }
-        if (rules.maxLength) {
-            isValid = value.length <= rules.maxLength && isValid;
-        }
-
-        return isValid
-    }
-
     inputChangedHandler = (event, inputIdentifier) => {
-        const updatedOrderForm = {...this.state.orderForm}
-        const updatedFormElement = this.state.orderForm[inputIdentifier];
-        updatedFormElement.value = event.target.value;
-        updatedFormElement.focus = true;
-        updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation)
-        updatedOrderForm[inputIdentifier] = updatedFormElement
+
+        const updatedFormElement = updateObject(this.state.orderForm[inputIdentifier], {
+            value: event.target.value,
+            touched: true,
+            valid: checkValidity(event.target.value, this.state.orderForm[inputIdentifier].validation)
+        }) ;
+        const updatedOrderForm = updateObject(this.state.orderForm, {
+            [inputIdentifier]: updatedFormElement
+        });
         
         let formIsValid = true;
         for (let inputIdentifier in updatedOrderForm) {
@@ -161,7 +149,7 @@ class ContactData extends Component {
                         value={formElement.config.value}
                         invalid={!formElement.config.valid}
                         shouldValidate={formElement.config.validation}
-                        focus={formElement.config.focus}
+                        touched={formElement.config.touched}
                         changed={(event) => this.inputChangedHandler(event, formElement.id)} />
                 ))}
                 <button className='order-button' disabled={!this.state.formIsValid}>Order</button>
